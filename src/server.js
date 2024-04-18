@@ -1,7 +1,12 @@
-const express = require('express')
+const express = require('express');
+const dbConnection = require('./config/db');
+const Config = require('./config');
 const app = express()
-const PORT = process.env.PORT || 8000;
+const PORT = Config.PORT || 5000;
 
+
+// dbConnection
+dbConnection();
 
 
 app.listen(PORT, () => {
