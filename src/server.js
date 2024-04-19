@@ -9,6 +9,9 @@ const PORT = Config.PORT || 5000;
 dbConnection();
 
 
-app.listen(PORT, () => {
+app.listen(PORT, (err) => {
+    if (err) {
+        console.log("Server not connected");
+    }
     console.log(`Listening on http://localhost:${PORT}`);
 })
