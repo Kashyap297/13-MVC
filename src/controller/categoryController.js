@@ -10,6 +10,12 @@ const categoryController = {
         }
     },
     create : async (req, res) => {
+        const category = await categoryModel.findOne({name : req.body.name})
+        if(category){
+            res.status(400).send('Category name already exists')
+            return
+        }
+
         try {
             const categories = await categoryModel.create(req.body)
             res.send(categories)
