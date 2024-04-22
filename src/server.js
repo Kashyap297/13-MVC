@@ -3,6 +3,7 @@ const dbConnection = require('./config/db');
 const Config = require('./config');
 const catRouter = require('./routes/categoryRoute');
 const subCatRouter = require('./routes/subCategoryRoute');
+const childCatRouter = require('./routes/childCategoryRoute');
 const app = express()
 const PORT = Config.PORT || 5000;
 
@@ -15,6 +16,7 @@ dbConnection();
 // routes
 app.use('/category', catRouter)
 app.use('/subcategory', subCatRouter)
+app.use('/childcategory', childCatRouter)
 
 app.listen(PORT, (err) => {
     if (err) {
