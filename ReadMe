@@ -1,0 +1,9 @@
+This task done with nested Objects -> link 
+
+create grand parent 
+
+create parent - inside object of grandParent
+
+create child - inside object of parent
+
+means each component is cover its parent's object to build relation SQL Relationship
