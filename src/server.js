@@ -7,6 +7,10 @@ const childCatRouter = require('./routes/childCategoryRoute');
 const app = express()
 const PORT = Config.PORT || 5000;
 
+// view engine
+app.set('view engine', 'ejs')
+app.set('views', 'src/views')
+
 // parseBody
 app.use(express.urlencoded({ extended: false }))
 
@@ -17,6 +21,10 @@ dbConnection();
 app.use('/category', catRouter)
 app.use('/subcategory', subCatRouter)
 app.use('/childcategory', childCatRouter)
+
+app.get('/', (req, res) => {
+    res.render('Pages/index')
+})
 
 app.listen(PORT, (err) => {
     if (err) {
